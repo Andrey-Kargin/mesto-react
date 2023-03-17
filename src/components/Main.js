@@ -5,14 +5,14 @@ import React, {useEffect, useState} from 'react';
 function Main({onEditProfile, onAddPlace, onEditAvatar, onCardClick}) {
   const [userName, setUserName] = useState('');
   const [userDescription, setUserDescription] = useState('');
-  const [userAvatar, setUserAvatar] = useState('');
+  const [userAvatar, updateAvatar] = useState('');
   const [cards, addNewCard] = useState([]);
 
   useEffect(() => {
     api.getUserInfo().then((profileInfo) => {
         setUserName(profileInfo.name)
         setUserDescription(profileInfo.about)
-        setUserAvatar(profileInfo.avatar)
+        updateAvatar(profileInfo.avatar)
     })
         .catch((err) => console.log(err))
 
