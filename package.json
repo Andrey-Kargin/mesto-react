@@ -31,7 +31,6 @@
       "not dead",
       "not op_mini all"
     ],
-    "homepage": "https://andrey-kargin.github.io/mesto-react/",
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
