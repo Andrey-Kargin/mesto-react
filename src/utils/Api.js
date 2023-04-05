@@ -20,6 +20,14 @@ class Api {
     .then(res => this._checkResponse(res));
   }
 
+  changeLikeCardStatus(isLiked, cardId) {
+    return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
+      method: isLiked ? 'DELETE' : 'PUT',
+      headers: this._headers,
+    })
+    .then(res => this._checkResponse(res));
+  }
+
   getUserInfo() {
       return fetch(`${this._baseUrl}/users/me`, {
         method: 'GET',
@@ -58,20 +66,6 @@ class Api {
       headers: this._headers,
     })
     .then(res => this._checkResponse(res));
-  }
-
-  setLike(cardId) {
-    return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
-      method: 'PUT',
-      headers: this._headers,
-    }).then(res => this._checkResponse(res));
-  }
-
-  deleteLike(cardId) {
-    return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
-      method: 'DELETE',
-      headers: this._headers,
-    }).then(res => this._checkResponse(res));
   }
 
   updateAvatar(data) {
